@@ -13,7 +13,7 @@ td, th {
     padding: 8px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(even) {x
     background-color: #dddddd;
 }
 </style>
@@ -22,21 +22,27 @@ tr:nth-child(even) {
     <title>Employees</title>
 </head>
 <body>
+    <h1>Employee List</h1>
 <table id="employees" style="width:100%">
     {% if result %}
     <tr>
+        <th>Employee Id</th>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Gender</th>
     </tr>
     {% for row in result %}
     <tr>
+        <td><a href="{{url_for('employee_detail', id=row.id) }}">{{row.id}}</a></td>
         <td> {{ row.first_name }}</td>
         <td> {{ row.last_name }}</td>
-        <td> {{ row.gender }}</td>
     </tr>
     {% endfor %}
     {% endif %}
 </table>
+
+<!-- Add some buttons -->
+    <input type = "button" onclick = "sayHello()" value = "Hello" />
+    <input type = "button" onclick = "sayGoodbye()" value = "Goodbye" />
+
 </body>
 </html>
